@@ -3,9 +3,10 @@
 }
 
 body{
-    margin: 0;
+    margin: 20px;
     background-color: whitesmoke;
-
+    padding-right: 50px;
+    padding-left: 50px;
 }
 
 *{
