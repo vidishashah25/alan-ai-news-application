@@ -9,6 +9,7 @@ const alanKey = '900a3555ab104bdc3bc9ed6228dcc7d52e956eca572e1d8b807a3e2338fdd0d
 const App = () =>{
 
     const [newsArticles, setNewsArticles] = useState([]);
+    const [activeArticle, setActiveArticle] = useState(-1);
     const classes = useStyles();
 
     useEffect(()=>{
@@ -18,6 +19,10 @@ const App = () =>{
                 if(command==='newHeadLines')
                 {
                     setNewsArticles(articles);
+                    setActiveArticle(-1);
+                }else if(command==='hilight')
+                {
+                    setActiveArticle((prevActiveArticle)=> prevActiveArticle + 1);
                 }
             }
         })
@@ -28,7 +33,7 @@ const App = () =>{
             <div className={classes.logoContainer}>
                 <img src="https://aleshere.github.io/alan-ai-newsreader-react/static/media/alan-logo.d3e2c60f.jpg" className={classes.alanLogo} alt="Alan logo"/>
             </div>
-            <NewsCards articles={newsArticles}/>
+            <NewsCards articles={newsArticles} activeArticle={activeArticle}/>
         </div>
     );
 }
